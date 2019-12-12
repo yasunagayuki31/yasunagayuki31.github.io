@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<style>
+  html{
+    background-color:#F7F7F7;
+    font-family:"游ゴシック";
+    text-align:center;
+  }
+  div{
+    display:block;
+    text-align:center;
+  }
+</style>
+
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="googleSheets.js"></script>
+    
+  </head>
+  
+  <body>
+    <h1><img src="muji.PNG"></h1>
+    <button id="mybtn">糖質10g以下のお菓子のラインナップを表示する</button>
+		<div id="contents"></div>
+
+    <script>
+    /* global $ loadSheets */
+    $(function(){
+      $("#mybtn").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1317256!A1:E100');
+        console.log(data.values[2][1]);//[行][列]
+				$("#contents").append("<br>");
+          $("#contents").append("<br>");
+          $("#contents").append("～¥120のお菓子～");
+          $("#contents").append("<br>");	
+					for(let i=12;i<18;i++){
+        			$("#contents").append("<br>");
+							$("#contents").append(data.values[i][1]);
+							$("#contents").append("<br>");
+							$("#contents").append(data.values[i][2]);
+							$("#contents").append("<br>");
+							$("#contents").append("糖質："+data.values[i][4]);
+							$("#contents").append("<br>");
+							$("#contents").append("<img height='200px' src='"+data.values[i][3]+"'/>");
+
+					}
+        
+          $("#contents").append("<br>");
+          $("#contents").append("<br>");
+          $("#contents").append("<br>");
+          $("#contents").append("<br>");
+          $("#contents").append("～¥150のお菓子～");
+          $("#contents").append("<br>");
+          $("#contents").append("<br>");
+        
+					for(let i=1;i<10;i++){
+							$("#contents").append(data.values[i][1]);
+							$("#contents").append("<br>");
+							$("#contents").append(data.values[i][2]);
+							$("#contents").append("<br>");
+							$("#contents").append("糖質："+data.values[i][4]);
+							$("#contents").append("<br>");
+							$("#contents").append("<img height='200px' src='"+data.values[i][3]+"'/>");
+              $("#contents").append("<br>");
+
+					}
+          $("#contents").append("<br>");
+          $("#contents").append("<br>");
+          $("#contents").append("<br>");
+          $("#contents").append("～¥250のお菓子～");
+          $("#contents").append("<br>");
+        
+					for(let i=20;i<25;i++){
+        			$("#contents").append("<br>");
+							$("#contents").append(data.values[i][1]);
+							$("#contents").append("<br>");
+							$("#contents").append(data.values[i][2]);
+							$("#contents").append("<br>");
+							$("#contents").append("糖質："+data.values[i][4]);
+							$("#contents").append("<br>");
+							$("#contents").append("<img height='200px' src='"+data.values[i][3]+"'/>");
+
+					}
+      } 
+    });
+
+    </script>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+  </body>
+</html>
