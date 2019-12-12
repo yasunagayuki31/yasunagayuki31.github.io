@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--色　見本　で検索-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1000">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  
+  <style>
+    html{
+      font-family:"游ゴシック";
+      background:#fff;
+    }
+    body{
+      margin:0;
+      padding:0;
+      text-align:center;
+      font-size:24px;
+      font-family:"游ゴシック";
+    }
+    header{
+      background-color:#d7ecf7;
+      text-align:center;
+      font-family:"游ゴシック";
+      color:#ffffff;
+    }
+    h1{
+      font-family:"游ゴシック";
+    }
+    h2{
+      text-align:center;
+      color:#333030;
+      font-size:20px;
+    }
+    main{
+      position:relative;
+      font-family:"游ゴシック";
+    }
+    button{
+      border-radius:10px;
+      font-size:80%;
+      background-color:#faf798;
+    }
+    footer{
+      background-color:#d7ecf7;
+      text-align:center;
+      
+    }
+  
+  </style>
+  
+  <title>summer</title>
+  <script>
+    $(function(){
+
+      $("#BBQ").hide();
+      $("#BBQimg").hide();
+      
+      $("#lion").hide();
+      $("#lionimg").hide();
+      
+      
+      $("#day21").on("click",function(){
+        console.log("click");
+        $("#BBQ").show(1000);
+        $("#BBQimg").show(2000);
+        $("#lion").hide();
+        $("#lionimg").hide();
+      })
+      
+      $("#day29").on("click",function(){
+        $("#lion").show(1000);
+        $("#lionimg").show(2000);
+        $("#BBQ").hide();
+        $("#BBQimg").hide();
+      })
+    })
+  
+  </script>
+  
+  </head>
+  <body>
+    <header>
+      <h1>私の夏休み</h1>
+    </header>
+    
+    <main>
+      <h2>いつの思い出を見る？？</h2>
+    
+      <button id="day21">8/21</button>
+      <button id="day29">8/29</button>
+      
+      <p id=BBQ>今日はアルバイト先のメンバーでバーベキューをしました。屋外だったのでとても暑かったですが、普段あまり話さない人ともいろいろな話ができて楽しかったです。</p>
+      <img src="BBQ.jpg" title="BBQ" id="BBQimg">
+      
+      <p id=lion>今日は友達と映画「ライオンキング」を見に行きました。キャラメルがたっぷりかかったポップコーンを食べ、お昼にはもんじゃを食べ、大満足の一日でした。</p>
+      <img src="lion.jpg" title="Lion King" id="lionimg">
+
+    </main>
+  </body>
+</html>
